@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SignInButton from "./components/SignInButton";
 
 export default function Home() {
   return (
@@ -12,42 +13,36 @@ export default function Home() {
           height={38}
           priority
         />
+        
+        <div className="w-full flex justify-center my-8">
+          <SignInButton />
+        </div>
+
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
+            This demo shows LinkedIn OAuth integration with NextAuth.js
           </li>
           <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
+            Click the LinkedIn button above to sign in.
           </li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://nextjs.org/docs/authentication"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            NextAuth Documentation
           </a>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://developer.linkedin.com/docs/oauth2"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            LinkedIn OAuth Docs
           </a>
         </div>
       </main>

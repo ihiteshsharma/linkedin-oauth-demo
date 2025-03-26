@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LinkedIn OAuth Demo with NextAuth.js
+
+This is a simple demo of LinkedIn OAuth integration using NextAuth.js in a Next.js application.
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone this repository
+
+```bash
+git clone https://github.com/yourusername/linkedin-oauth-demo.git
+cd linkedin-oauth-demo
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up LinkedIn OAuth credentials
+
+1. Go to [LinkedIn Developer Portal](https://www.linkedin.com/developers/apps)
+2. Click on "Create App"
+3. Fill in the required information:
+   - App name
+   - LinkedIn Page (company page) or profile URL
+   - App logo
+4. Under "Auth" tab:
+   - Add "http://localhost:3000" to Authorized redirect URLs for OAuth 2.0
+   - Add "http://localhost:3000/api/auth/callback/linkedin" to OAuth 2.0 redirect URLs
+5. Note down your Client ID and Client Secret
+
+### 4. Configure environment variables
+
+Create a `.env.local` file in the root of your project and add your LinkedIn OAuth credentials:
+
+```
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret_key_here
+
+# LinkedIn OAuth
+LINKEDIN_CLIENT_ID=your_linkedin_client_id_here
+LINKEDIN_CLIENT_SECRET=your_linkedin_client_secret_here
+```
+
+For `NEXTAUTH_SECRET`, you can generate a random string using:
+
+```bash
+openssl rand -base64 32
+```
+
+### 5. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Simple "Sign in with LinkedIn" button
+- Authentication using NextAuth.js
+- Display of user information after authentication
+- Sign out functionality
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js
+- NextAuth.js
+- Tailwind CSS
+- LinkedIn OAuth 2.0
